@@ -16,8 +16,8 @@ window.onload = async (): Promise<void> => {
     resizeCanvas();
 
     const hourTest = new HourRenderer();
-    hourTest.width = 100;
-    hourTest.height = 100;
+    hourTest.width = 140;
+    hourTest.height = 140;
     stage.addChild(hourTest);
 };
 
@@ -46,15 +46,4 @@ function resizeCanvas(): void {
     resize();
 
     window.addEventListener("resize", resize);
-}
-
-function getBird(): PIXI.AnimatedSprite {
-    const bird = new PIXI.AnimatedSprite([]);
-
-    bird.loop = true;
-    bird.animationSpeed = 0.1;
-    bird.play();
-    bird.scale.set(3);
-
-    return bird;
 }

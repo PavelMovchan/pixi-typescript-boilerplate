@@ -1,15 +1,14 @@
-import * as PIXI from "pixi.js";
+import CoreGraphics from "../Core/CoreGraphics";
 
-class HourRenderer extends PIXI.Graphics {
+class HourRenderer extends CoreGraphics {
     constructor() {
         super();
         this.update();
     }
 
     update(): void {
-        this.beginFill(0xffff00);
-        this.lineStyle(5, 0xff0000);
-        this.drawRect(0, 0, this.width, this.height);
+        this.beginFill(0xff0000);
+        this.drawRect(0, 0, 10, 10);
     }
 }
 
