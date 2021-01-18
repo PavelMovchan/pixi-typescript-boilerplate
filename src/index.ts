@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import HourRenderer from "./UI/ItemRenderers/HourRenderer";
+import TimesheetInteractor from "./Interactors/TimeSheetInteractor";
 import "./style.css";
 
 const app = new PIXI.Application({
@@ -11,15 +12,20 @@ const stage = app.stage;
 window.onload = async (): Promise<void> => {
     await loadAssets();
 
+    initInteractor();
     document.body.appendChild(app.view);
 
     resizeCanvas();
 
     const hourTest = new HourRenderer();
-    hourTest.width = 140;
-    hourTest.height = 140;
+    hourTest.frame = { width: 100, height: 100, x: 10, y: 10 };
+
     stage.addChild(hourTest);
 };
+
+function initInteractor(): void {
+    TimesheetInteractor.shared().start();
+}
 
 async function loadAssets(): Promise<void> {
     return new Promise((res, rej) => {
